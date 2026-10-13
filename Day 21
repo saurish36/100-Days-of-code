@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int main()
+{
+    int n, temp, first, last, divisor = 1, middle, result;
+
+    scanf("%d", &n);
+
+    temp = n;
+
+    /* Find place value of first digit */
+    while (temp >= 10)
+    {
+        temp = temp / 10;
+        divisor = divisor * 10;
+    }
+
+    first = n / divisor;
+    last = n % 10;
+
+    /* Remove first and last digits */
+    middle = (n % divisor) / 10;
+
+    /* Construct new number */
+    result = last * divisor + middle * 10 + first;
+
+    printf("%d", result);
+
+    return 0;
+}
